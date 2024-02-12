@@ -1,0 +1,57 @@
+{%extends "layout.html" %}
+
+  {% block title%}
+         <title>Clean Blog - Start Bootstrap Theme</title>
+        {% endblock %}
+
+{% block body%}
+
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/admin_login.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                           <h1>You are in Admin Panel</h1>
+                            <span class="subheading">Here You can manage your all post</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+
+    <div class="container px-4 px-lg-5">
+    <table class="table table-bordered">
+  <thead>
+    <tr class="bg-primary" style="color:white;font-size:26px;">
+      <th scope="col">Sno</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  {% for post in posts %}
+    <tr class="table-primary">
+      <td>{{ post['sno'] }}</td>
+      <td>{{ post['title'] }}</td>
+      <td>{{ format_date(post['date']) }}</td>
+      <td><a href="/dashboard/edit/{{post.sno}}"><button class="btn btn-primary">Edit</button></a></td>
+      <td><a href="/dashboard/delete_post/{{post.sno }}" onclick="return confirm('Are you sure you want to delete this post?')"><button class="btn btn-primary">Delete</button></a></td>
+
+    </tr>
+   {% endfor %}
+
+  </tbody>
+</table>
+</div>
+<div class="d-flex justify-content-end" style="margin-right:80px;margin-top:25px;margin-bottom:25px;">
+    <a class="btn btn-primary text-uppercase" style="margin-right:40px;" href="/dashboard/add_post">Add a New Post</a>
+    <a class="btn btn-primary text-uppercase" href="{{ url_for('logout') }}">Log Out</a>
+</div>
+
+{% endblock %}

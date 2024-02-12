@@ -1,0 +1,92 @@
+{%extends "layout.html" %}
+
+  {% block title%}
+       <title>Cricket Oracle - Unlocking the Secrets of Cricket Predictions</title>
+        {% endblock %}
+
+{% block body%}
+
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                           <h1>Add A New Post</h1>
+                            <span class="subheading">{{config.website['tagline']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+
+
+    <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="d-flex justify-content-end" style="margin-right:30px;"><a class="btn btn-primary text-uppercase" href="{{ url_for('dashboard') }}">Dashboard</a></div>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2>Add A New Post</h2>
+                        <div class="my-5">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            <form id="contactForm" name="sentMessage" action="/dashboard/add_post" method="post" data-sb-form-api-token="API_TOKEN">
+                                <div class="form-floating">
+                                    <input class="form-control" id="name" name='title' type="text" style="height: 5rem;width:800px;"  placeholder="Enter your name..." data-sb-validations="required" />
+                                    <label for="name">Title</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">Title is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="email" name='slug' type="text"  placeholder="Enter your email..." data-sb-validations="required,email" />
+                                    <label for="email">Slug</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="phone" name='image_url' type="text" placeholder="Enter your phone number..." data-sb-validations="required" />
+                                    <label for="phone">Image URL</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">Image URL is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" name='content'  placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="message">Content</label>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required">Content is required.</div>
+                                </div>
+                                <br />
+                                <!-- Submit success message-->
+                                <!---->
+                                <!-- This is what your users will see when the form-->
+                                <!-- has successfully submitted-->
+                                <div class="d-none" id="submitSuccessMessage">
+                                    <div class="text-center mb-3">
+                                        <div class="fw-bolder">Form submission successful!</div>
+                                        To activate this form, sign up at
+                                        <br />
+                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    </div>
+                                </div>
+                                <!-- Submit error message-->
+                                <!---->
+                                <!-- This is what your users will see when there is-->
+                                <!-- an error submitting the form-->
+                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                <!-- Submit Button-->
+<!--                                  <input style="color:#454545; background:black;border:0px; padding:10px;"  onMouseOver="this.style.background='green'"  onMouseOut="this.style.background='white'"  type="submit" value="Submit">-->
+                                <input class="btn btn-primary text-uppercase" type="submit" value="Submit">
+<!--                                <button  id="submitButton" type="submit">Send</button>-->
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{%extends "layout.html" %}
+
+  {% block title%}
+      <title>Cricket Oracle - Unlocking the Secrets of Cricket Predictions</title>
+        {% endblock %}
+
+{% block body%}
+
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/admin_login.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                           <h1>Manage Predictions</h1>
+                            <span class="subheading">Managing the Cricket Oracle Universe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+<!-- Section: Design Block -->
+<section class="">
+  <!-- Jumbotron -->
+  <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-5 display-3 fw-bold ls-tight">
+           Managing the <br />
+            <span class="text-primary">Cricket Oracle Universe </span>
+          </h1>
+          <p style="color: hsl(217, 10%, 50.8%)">
+            Welcome to the CricketOracle Admin Page, your central hub for managing all posts with ease. Streamline your workflow, update content effortlessly, and stay organized as you navigate through the world of cricket predictions. From editing match previews to analyzing user engagement, our intuitive interface puts you in control, ensuring a seamless experience every step of the way.
+          </p>
+        </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0" >
+          <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff; border-radius: 15px; width: 400px;">
+            <div class="card-body py-5 px-md-5 rounded-6">
+         <form style="font-family: sans-serif;" action="/manage_post" method="post">
+                <!-- Email input -->
+               {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example3" class="form-control" name="uname" required>
+                  <label class="form-label" for="form3Example3"  style="margin-top:10px;">User Name</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" name="password" id="myInput" class="form-control" name="password" required>
+                  <label class="form-label" style="margin-top:10px;">Password</label>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex mb-4">
+                  <input class="form-check-input me-2" type="checkbox" onclick="myFunction()">
+                  <label class="form-check-label" for="form2Example33">
+                    Show Password
+                  </label>
+                </div>
+
+                <!-- Submit button -->
+             <input class="btn btn-primary text-uppercase" type="submit" value="Login">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+
+  <script>
+        function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    </script>
+{% endblock %}
