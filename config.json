@@ -1,0 +1,40 @@
+{
+  "db_config": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "blogging_guru",
+    "cursorclass": "pymysql.cursors.DictCursor"
+  },
+  "website": {
+    "title": "Cricket Oracle",
+    "tagline": "Unlocking the Secrets of Cricket Predictions",
+    "about": "About Cricket Oracle",
+    "about_tagline": "Unlocking the Secrets of Cricket Predictions",
+
+    "about_intro1": "In the dynamic world of cricket, where every match is a spectacle of athleticism, strategy, and drama, the quest to foresee the future of the game has always been an exhilarating pursuit. Welcome to CricketOracle, your premier destination for unlocking the secrets of cricket predictions.",
+    "about_intro2": "At CricketOracle, we understand the insatiable appetite of cricket enthusiasts for insights and forecasts that go beyond the scorecard. With a passion for the sport and a commitment to delivering accurate and informed predictions, we've crafted a platform that caters to the discerning cricket aficionado.",
+
+    "about_intro3": "Our team of seasoned cricket analysts brings a wealth of experience and expertise to the table. Combining meticulous statistical analysis with a deep understanding of the game's nuances, they dissect every aspect of upcoming matches to provide you with predictions that are not just educated guesses but informed assessments.",
+     "about_intro4": "From analyzing team compositions and recent form to evaluating pitch conditions and weather forecasts, our experts leave no stone unturned in their quest to unravel the intricacies of each encounter. Whether it's a high-stakes international fixture or a pulsating domestic clash, you can trust CricketOracle to deliver insights that matter.",
+
+     "about_intro5": "So why wait? Join the CricketOracle family today and embark on a journey of discovery and excitement. Whether you're looking to stay ahead of the curve in your fantasy cricket league or simply seeking to enhance your enjoyment of the game, CricketOracle has you covered.",
+      "about_intro6": "With our unparalleled expertise, unwavering commitment to accuracy, and passion for cricket, we're here to be your trusted companion on your cricketing odyssey. Welcome to CricketOracle - where the future of cricket unfolds before your eyes.",
+    "no_of_post": 3
+  },
+  "meta_data": {
+    "name": "Cricket Oracle",
+    "copy_right" : "CricketOracle.com",
+    "admin_user" : "Ankit",
+    "admin_password" : "cricket@123"
+  },
+  "mail": {
+    "server": "your_mail_server",
+    "port": 587,
+    "use_tls": true,
+    "use_ssl": false,
+    "username": "your_mail_username",
+    "password": "your_mail_password",
+    "default_sender": "your_email@example.com"
+  }
+}

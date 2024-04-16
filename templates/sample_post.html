@@ -1,0 +1,34 @@
+{%extends "layout.html" %}
+  {% block title%}
+       <title>Cricket Oracle - {{post['title']}}</title>
+        {% endblock %}
+{% block body%}
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/back.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{post['title']}}</h1>
+                            <span class="meta" style="font-style: normal;">Posted by <b>Ankit Kumar</b> on {{ format_date(post['date']) }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2>{{post['title']}}</h2><br>
+                        <img class="img-fluid" src="{{ post['image_url'] }}"  alt="..." />
+                    <p>{{ post['content'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+ <!-- Pager-->
+<div style="margin-left:350px;margin-bottom:30px;"><a class="btn btn-primary text-uppercase" href="/post">&larr; Back To All Post</a></div>
+{% endblock %}
