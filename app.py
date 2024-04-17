@@ -53,7 +53,7 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = 'ankit.developer2004@gmail.com'  # your Gmail email
-app.config['MAIL_PASSWORD'] = 'rwmwsyplgggtfjyg'  # your Gmail password
+app.config['MAIL_PASSWORD'] = 'bityyeksgthispju'  # your Gmail password
 
 mail = Mail(app)
 
@@ -137,7 +137,7 @@ def submit():
 
 # Function to send email
 def send_email(name, email, phone, message):
-    msg = Message('Form Submission',
+    msg = Message(f'Cricket Oracle Message By {name}',
                   sender='ankit.developer2004@gmail.com',
                   recipients=['ankit.developer2004@gmail.com'])  # recipient email
 
@@ -212,14 +212,17 @@ def edit_post(sno):
             title = request.form.get('title')
             slug = request.form.get('slug')
             image_url = request.form.get('image_url')
-            content = request.form.get('content')
+            team_analysis = request.form.get('team_analysis')
+            head_to_head = request.form.get('head_to_head')
+            final_prediction = request.form.get('final_prediction')
             date = datetime.now()
             # Insert data into the database
             connection = create_connection()
             try:
                 with connection.cursor() as cursor:
-                    cursor.execute('UPDATE posts SET title=%s, slug=%s, image_url=%s, content=%s, date=%s WHERE sno=%s',
-                                   (title, slug, image_url, content, date, sno))
+                    cursor.execute(
+                        'UPDATE posts SET title=%s, slug=%s, image_url=%s, team_analysis=%s, head_to_head=%s,final_prediction=%s,date=%s WHERE sno=%s',
+                        (title, slug, image_url, team_analysis, head_to_head, final_prediction, date, sno))
                 connection.commit()
                 return redirect(url_for('dashboard'))
             finally:
@@ -258,13 +261,17 @@ def add_post():
             title = request.form.get('title')
             slug = request.form.get('slug')
             image_url = request.form.get('image_url')
-            content = request.form.get('content')
+            team_analysis = request.form.get('team_analysis')
+            head_to_head = request.form.get('head_to_head')
+            final_prediction = request.form.get('final_prediction')
             date = datetime.now()
 
             try:
                 with connection.cursor() as cursor:
                     # Insert a new post into the 'posts' table
-                    cursor.execute('INSERT INTO posts (title, slug, image_url, content, date) VALUES (%s, %s, %s, %s, %s)', (title, slug, image_url, content, date))
+                    cursor.execute(
+                        'INSERT INTO posts (title, slug, image_url, team_analysis, head_to_head, final_prediction, date) VALUES (%s, %s,  %s, %s, %s, %s, %s)',
+                        (title, slug, image_url, team_analysis, head_to_head, final_prediction, date))
                     connection.commit()
             finally:
                 connection.close()
@@ -273,7 +280,7 @@ def add_post():
     else:
         return redirect(url_for('admin_login'))
 
-    return render_template('add_post.html',config=config)
+    return render_template('add_post.html', config=config)
 
 
 # Logout

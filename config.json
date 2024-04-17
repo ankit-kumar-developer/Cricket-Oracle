@@ -26,7 +26,8 @@
     "name": "Cricket Oracle",
     "copy_right" : "CricketOracle.com",
     "admin_user" : "Ankit",
-    "admin_password" : "cricket@123"
+    "admin_password" : "cricket@123",
+    "website_owner" : "Ankit Kumar"
   },
   "mail": {
     "server": "your_mail_server",

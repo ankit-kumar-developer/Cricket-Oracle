@@ -7,7 +7,7 @@
 {% block body%}
 
 <!-- Page Header-->
-        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/add_post.jpg') }}')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -52,9 +52,21 @@
                                     <label for="phone">Image URL</label>
                                     <div class="invalid-feedback" data-sb-feedback="phone:required">Image URL is required.</div>
                                 </div>
+                                 <div class="form-floating">
+                                    <textarea class="form-control" id="team_analysis" name='team_analysis'  placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="message">Match Analysis</label>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required">Content is required.</div>
+                                </div>
+                                <br />
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" name='content'  placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
-                                    <label for="message">Content</label>
+                                    <textarea class="form-control" id="head_to_head" name='head_to_head'  placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                    <label for="message">Head to Head and Betting Odds</label>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required">Content is required.</div>
+                                </div>
+                                <br />
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="final_prediction" name='final_prediction'  placeholder="Enter your message here..." style="height: 6rem" data-sb-validations="required"></textarea>
+                                    <label for="message">Final Prediction</label>
                                     <div class="invalid-feedback" data-sb-feedback="message:required">Content is required.</div>
                                 </div>
                                 <br />
