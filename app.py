@@ -27,10 +27,10 @@ def format_date(input_date):
 
 # Database configuration
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'database': 'blogging_guru',
+    'host': 'sql5.freesqldatabase.com',
+    'user': 'sql5699648',
+    'password': '29By8tqFV7',
+    'database': 'sql5699648',
     'cursorclass': pymysql.cursors.DictCursor
 }
 
