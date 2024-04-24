@@ -1,9 +1,9 @@
 {
   "db_config": {
-    "host": "sql5.freesqldatabase.com",
-    "user": "sql5699648",
-    "password": "29By8tqFV7",
-    "database": "sql5699648",
+     "host": "sql5.freesqldatabase.com",
+    "user": "sql3701733",
+    "password": "RtMalkrwuB",
+    "database": "sql3701733",
     "cursorclass": "pymysql.cursors.DictCursor"
   },
   "website": {
