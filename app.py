@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from flask_mail import Mail, Message  # Import Mail and Message from Flask-Mail
 import pymysql
 import json
-from datetime import datetime
+from datetime import datetime, date
+import pymysql.cursors
 
 app = Flask(__name__)
 app.secret_key = "sdfsdfjij@3k4k3j4k"
@@ -11,27 +12,28 @@ app.secret_key = "sdfsdfjij@3k4k3j4k"
 # Function to format the date
 def format_date(input_date):
     if isinstance(input_date, str):
-        # If the input date is a string, parse it to a datetime object
-        parsed_date = datetime.strptime(input_date, '%d/%m/%Y')
-    elif isinstance(input_date, datetime):
-        # If the input date is already a datetime object, convert it to a string
+        # If the input date is a string, parse it to a date object
+        parsed_date = datetime.strptime(input_date, '%Y-%m-%d').date()
+    elif isinstance(input_date, date):
+        # If the input date is already a date object, use it directly
         parsed_date = input_date
     else:
-        raise ValueError("Invalid input date type. Should be either str or datetime.datetime.")
+        raise ValueError("Invalid input date type. Should be either str or datetime.date.")
 
-    # Format the datetime object as "27 December, 2024"
+    # Format the date object as "27 December, 2024"
     formatted_date = parsed_date.strftime('%d %B, %Y')
 
     return formatted_date
 
 
+
 # Database configuration
 db_config = {
-    'host': 'sql5.freesqldatabase.com',
-    'user': 'sql5699648',
-    'password': '29By8tqFV7',
-    'database': 'sql5699648',
-    'cursorclass': pymysql.cursors.DictCursor
+    "host": "sql3.freesqldatabase.com",
+    "user": "sql3701733",
+    "password": "RtMalkrwuB",
+    "database": "sql3701733",
+    "cursorclass": "pymysql.cursors.DictCursor"
 }
 
 # Load configuration from JSON file
@@ -44,8 +46,24 @@ with open('config.json') as config_file:
 
 
 # Function to create a database connection
+# def create_connection():
+#     return pymysql.connect(**db_config)
+
+
 def create_connection():
-    return pymysql.connect(**db_config)
+    # Database configuration
+    db_config = {
+        "host": "sql3.freesqldatabase.com",
+        "user": "sql3701733",
+        "password": "RtMalkrwuB",
+        "database": "sql3701733",
+        "cursorclass": pymysql.cursors.DictCursor
+    }
+
+    # Create a connection to the database
+    connection = pymysql.connect(**db_config)
+    return connection
+
 
 
 # Flask-Mail Configuration
@@ -57,20 +75,24 @@ app.config['MAIL_PASSWORD'] = 'bityyeksgthispju'  # your Gmail password
 
 mail = Mail(app)
 
-
 @app.route("/")
 def index():
+    # Establish a connection to the database
     connection = create_connection()
+
     try:
         no_of_post = config['website']['no_of_post']
         with connection.cursor() as cursor:
             # Fetch all posts from the 'posts' table
-            cursor.execute(f'SELECT * FROM posts ORDER BY sno DESC LIMIT {no_of_post} ')
+            cursor.execute(f'SELECT * FROM posts ORDER BY sno DESC LIMIT {no_of_post}')
             posts = cursor.fetchall()
 
     finally:
+        # Close the connection after executing the query
         connection.close()
+
     return render_template('index.html', posts=posts, config=config, format_date=format_date)
+
 
 
 @app.route("/about")
@@ -288,3 +310,7 @@ def add_post():
 def logout():
     session.pop('user')
     return redirect(url_for('admin_login'))
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port="3030")
