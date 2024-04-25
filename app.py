@@ -311,6 +311,6 @@ def logout():
     session.pop('user')
     return redirect(url_for('admin_login'))
 
-
-if __name__ == '__main__':
-    app.run(debug=True, port="3030")
+#
+# if __name__ == '__main__':
+#     app.run(debug=True, port="3030")
