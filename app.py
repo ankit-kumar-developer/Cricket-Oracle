@@ -29,10 +29,10 @@ def format_date(input_date):
 
 # Database configuration
 db_config = {
-    "host": "sql3.freesqldatabase.com",
-    "user": "sql3701733",
-    "password": "RtMalkrwuB",
-    "database": "sql3701733",
+    "host": "sql5.freesqldatabase.com",
+    "user": "sql5703344",
+    "password": "Qhi5tSVNl6",
+    "database": "sql5703344",
     "cursorclass": "pymysql.cursors.DictCursor"
 }
 
@@ -53,11 +53,11 @@ with open('config.json') as config_file:
 def create_connection():
     # Database configuration
     db_config = {
-        "host": "sql3.freesqldatabase.com",
-        "user": "sql3701733",
-        "password": "RtMalkrwuB",
-        "database": "sql3701733",
-        "cursorclass": pymysql.cursors.DictCursor
+        "host": "sql5.freesqldatabase.com",
+        "user": "sql5703344",
+        "password": "Qhi5tSVNl6",
+        "database": "sql5703344",
+        "cursorclass": pymysql.cursors.DictCursor  # Use DictCursor directly
     }
 
     # Create a connection to the database
@@ -79,7 +79,6 @@ mail = Mail(app)
 def index():
     # Establish a connection to the database
     connection = create_connection()
-
     try:
         no_of_post = config['website']['no_of_post']
         with connection.cursor() as cursor:
@@ -313,4 +312,4 @@ def logout():
 
 #
 # if __name__ == '__main__':
-#     app.run(debug=True, port="3030")
+#     app.run(debug=True, port="2000")
